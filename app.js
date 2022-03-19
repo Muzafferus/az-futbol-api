@@ -2,7 +2,10 @@ const express = require('express')
 const app = express();
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+
 const cors = require('cors');
+const port = process.env.port || 666
+
 require('dotenv/config');
 
 //Middlewares
@@ -31,4 +34,4 @@ app.get('/', (req, res) => {
 });
 
 //How to we start listening to the server
-app.listen(666);
+app.listen(port);
