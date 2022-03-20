@@ -3,8 +3,13 @@ const app = express();
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
+const swaggerUi = require('swagger-ui-express'),
+    swaggerDocument = require('./swagger.json');
+
 const cors = require('cors');
 const port = process.env.PORT || 3164;
+
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 require('dotenv/config');
 
@@ -28,7 +33,7 @@ mongoose.connect(
         console.log('connected')
     })
 
-//ROUTES
+// Routes
 app.get('/', (req, res) => {
     res.send('We are on home')
 });

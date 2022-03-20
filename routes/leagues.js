@@ -33,12 +33,12 @@ router.post('/', async (req, res) => {
     }
 })
 
-function returnSuccess(data){
+function returnSuccess(data) {
     return {
-		status: 200,
-		timestamp: Date.now(),
-		data: data
-  };
+        status: 200,
+        timestamp: Date.now(),
+        data: data
+    };
 }
 
 module.exports = router;

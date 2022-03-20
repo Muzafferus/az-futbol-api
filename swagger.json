@@ -1,0 +1,233 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "AzFutbol API",
+        "description": "AzFutbol API Information"
+    },
+    "host": "az-futbol-api.herokuapp.com",
+    "basePath": "/",
+    "tags": [
+        {
+            "name": "Games",
+            "description": "API for all games"
+        },
+        {
+            "name": "Levels",
+            "description": "API for league level type"
+        },
+        {
+            "name": "Leagues",
+            "description": "API for all leagues"
+        },
+        {
+            "name": "Teams",
+            "description": "API for all teams"
+        }
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/games": {
+            "get": {
+                "tags": [
+                    "Games"
+                ],
+                "summary": "Get all games",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Game"
+                        }
+                    }
+                }
+            }
+        },
+        "/leagues": {
+            "get": {
+                "tags": [
+                    "Leagues"
+                ],
+                "summary": "Get all leagues",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/League"
+                        }
+                    }
+                }
+            }
+        },
+        "/levels": {
+            "get": {
+                "tags": [
+                    "Levels"
+                ],
+                "summary": "Get all level",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Level"
+                        }
+                    }
+                }
+            }
+        },
+        "/teams": {
+            "get": {
+                "tags": [
+                    "Teams"
+                ],
+                "summary": "Get all teams",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Team"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Game": {
+            "required": [
+                "_id",
+                "league_id",
+                "tour",
+                "game_status",
+                "home_team_id",
+                "home_team_name",
+                "home_goal",
+                "away_team_id",
+                "away_team_name",
+                "away_goal"
+            ],
+            "properties": {
+                "_id": {
+                    "type": "integer",
+                    "uniqueItems": true
+                },
+                "league_id": {
+                    "type": "integer"
+                },
+                "tour": {
+                    "type": "integer"
+                },
+                "match_day": {
+                    "type": "String"
+                },
+                "game_status": {
+                    "type": "String"
+                },
+                "home_team_id": {
+                    "type": "integer"
+                },
+                "home_team_name": {
+                    "type": "String"
+                },
+                "home_goal": {
+                    "type": "integer"
+                },
+                "home_penal": {
+                    "type": "integer"
+                },
+                "away_team_id": {
+                    "type": "integer"
+                },
+                "away_team_name": {
+                    "type": "String"
+                },
+                "away_goal": {
+                    "type": "integer"
+                },
+                "away_penal": {
+                    "type": "integer"
+                }
+            }
+        },
+        "Level": {
+            "required": [
+                "_id",
+                "order",
+                "format",
+                "last_name"
+            ],
+            "properties": {
+                "_id": {
+                    "type": "integer",
+                    "uniqueItems": true
+                },
+                "order": {
+                    "type": "integer"
+                },
+                "format": {
+                    "type": "String"
+                },
+                "last_name": {
+                    "type": "String"
+                }
+            }
+        },
+        "League": {
+            "required": [
+                "_id",
+                "level_id",
+                "name",
+                "start_year",
+                "finish_year",
+                "team_size"
+            ],
+            "properties": {
+                "_id": {
+                    "type": "integer",
+                    "uniqueItems": true
+                },
+                "level_id": {
+                    "type": "integer"
+                },
+                "tonameur": {
+                    "type": "String"
+                },
+                "start_year": {
+                    "type": "integer"
+                },
+                "finish_year": {
+                    "type": "integer"
+                },
+                "team_size": {
+                    "type": "integer"
+                }
+            }
+        },
+        "Team": {
+            "required": [
+                "_id",
+                "team_last_name"
+            ],
+            "properties": {
+                "_id": {
+                    "type": "integer",
+                    "uniqueItems": true
+                },
+                "team_last_name": {
+                    "type": "integer"
+                },
+                "team_logo_url": {
+                    "type": "String"
+                },
+                "team_city": {
+                    "type": "String"
+                }
+            }
+        }
+    }
+}
